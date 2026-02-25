@@ -57,7 +57,7 @@ def create_trendline_chart(csv_path, output_path):
                 vertical_alignment = 'top'
                 year_placements_count['below'] += 1
 
-            ax.text(year, count + offset, name, ha='center', va=vertical_alignment, fontsize=9)
+            ax.text(year, count + offset, name, ha='left', va=vertical_alignment, fontsize=9)
 
     # Set axis labels and font sizes
     ax.set_xlabel("Year", fontsize=14)
