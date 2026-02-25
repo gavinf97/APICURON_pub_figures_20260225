@@ -28,13 +28,36 @@ def create_trendline_chart(csv_path, output_path):
     # Plot the cumulative integration count as a trendline
     ax.plot(cumulative_counts.index, cumulative_counts.values, marker='o', linestyle='-', color='darkblue')
 
-    # Add stacked annotations for each resource
+    # Define specific placements for resource labels
+    placements = {
+        'DisProt': 'above', 'PED': 'above', 'Biomappings': 'above',
+        'Pfam': 'below', 'Bioregistry': 'below',
+        'PomBase': 'below', 'Rfam': 'below', 'BioModels': 'below',
+        'Reactome': 'below', 'IntAct': 'below', 'Complex Portal': 'below',
+        'SABIO-RK': 'below', 'DOME Registry': 'below', 'PDBe': 'below',
+        'ELIXIR Training Materials': 'below', 'Glittr.org': 'below',
+        'microPublication': 'below', 'S3 School': 'below'
+    }
+
+    # Add annotations with specific placement logic
     for year, resources in resources_per_year.items():
         count = cumulative_counts[year]
-        # Stagger text labels vertically to prevent overlap
-        for i, name in enumerate(resources):
-            ax.text(year + 0.1, count - (len(resources) - 1) * 0.35 + i * 0.6, name, 
-                    ha='left', va='center', fontsize=9)
+        
+        year_placements_count = {'above': 0, 'below': 0}
+        
+        for name in sorted(resources): # Sort for consistent placement
+            placement = placements.get(name, 'below') # Default to 'below'
+
+            if placement == 'above':
+                offset = 0.5 + year_placements_count['above'] * 0.5
+                vertical_alignment = 'bottom'
+                year_placements_count['above'] += 1
+            else: # 'below'
+                offset = -0.5 - year_placements_count['below'] * 0.5
+                vertical_alignment = 'top'
+                year_placements_count['below'] += 1
+
+            ax.text(year, count + offset, name, ha='center', va=vertical_alignment, fontsize=9)
 
     # Set axis labels and font sizes
     ax.set_xlabel("Year", fontsize=14)
