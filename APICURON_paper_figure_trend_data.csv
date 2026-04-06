@@ -1,19 +1,19 @@
-Resource Name,Year Added
-DisProt,2021
-PED,2021
-Biomappings,2021
-Bioregistry,2022
-Pfam,2022
-PomBase,2023
-Rfam,2023
-BioModels,2023
-Reactome,2023
-IntAct,2023
-Complex Portal,2023
-SABIO-RK,2024
-DOME Registry,2024
-PDBe,2024
-ELIXIR Training Materials,2024
-Glittr.org,2024
-microPublication,2025
-S3 School,2026
+Resource Name,Date Added
+DisProt,2021-01-07
+PED,2021-01-07
+Biomappings,2021-08-23
+Bioregistry,2022-09-27
+Pfam,2022-11-29
+PomBase,2023-01-19
+Rfam,2023-06-08
+BioModels,2023-12-04
+Reactome,2023-12-05
+IntAct,2023-12-05
+Complex Portal,2023-12-05
+SABIO-RK,2024-01-11
+DOME Registry,2024-07-04
+ELIXIR Training Materials,2024-11-04
+PDBe,2024-11-10
+Glittr.org,2024-12-19
+microPublication,2025-02-03
+S3 School,2026-01-27
